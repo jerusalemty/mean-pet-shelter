@@ -1,0 +1,68 @@
+<p *ngIf="createErrors">These are errors: {{ createErrors|json }}</p>
+
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="editItem()">
+      <div class="form-group">
+        <label for="name">Pet Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="itemToEdit.name" #name="ngModel" name="name"
+          [value]="name" required minlength="3">
+        <div *ngIf="name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name should be inserted
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name should be at least 3 character
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Pet Type:</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="itemToEdit.type" #type="ngModel" name="type"
+          [value]="type" required minlength="5">
+        <div *ngIf="type.invalid" class="alert alert-danger">
+          <div *ngIf="type.errors.required">
+            Type should be inserted
+          </div>
+          <div *ngIf="type.errors.minlength">
+            Type should be at least 3 character
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="descripition" [(ngModel)]="itemToEdit.description" #description="ngModel"
+          name="description" [value]="description" required minlength="5">
+        <div *ngIf="description.invalid" class="alert alert-danger">
+          <div *ngIf="description.errors.required">
+            Description should be inserted
+          </div>
+          <div *ngIf="description.errors.minlength">
+            Must be at least 3 characters.
+          </div>
+        </div>
+      </div>
+
+      <h4>Skills:</h4>
+      <div class="form-group">
+        <label for="first_skill">Skill 1 :</label>
+        <input type="text" class="form-control" id="first_skill" [(ngModel)]="itemToEdit.first_skill" name="first_skill"
+          [value]="first_skill">
+      </div>
+      <div class="form-group">
+        <label for="second_skill">Skill 2 :</label>
+        <input type="text" class="form-control" id="second_skill" [(ngModel)]="itemToEdit.second_skill" name="second_skill"
+          [value]="second_skill">
+      </div>
+      <div class="form-group">
+        <label for="third_skill">Skill 3 :</label>
+        <input type="text" class="form-control" id="third_skill" [(ngModel)]="itemToEdit.third_skill" name="third_skill"
+          [value]="third_skill">
+      </div>
+
+      <input type="submit" class="btn btn-info" value="Update">
+    </form>
+  </div>
+</div>

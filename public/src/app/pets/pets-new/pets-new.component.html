@@ -1,0 +1,69 @@
+<p *ngIf="createErrors">These are errors: {{ createErrors|json }}</p>
+
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="addItem()">
+      <div class="form-group">
+        <label for="name">Pet Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="newItem.name" #name="ngModel" name="name"
+          required minlength="3">
+        <div *ngIf="name.invalid" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Name should be inserted
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name should be at least 3 character
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="type">Pet Type:</label>
+        <input type="text" class="form-control" id="type" [(ngModel)]="newItem.type" #type="ngModel" name="type"
+          required minlength="5">
+        <div *ngIf="type.invalid" class="alert alert-danger">
+          <div *ngIf="type.errors.required">
+            Type should be inserted
+          </div>
+          <div *ngIf="type.errors.minlength">
+            Name should be at least 3 character
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" class="form-control" id="descripition" [(ngModel)]="newItem.description" #description="ngModel"
+          name="description" required minlength="5">
+        <div *ngIf="description.invalid" class="alert alert-danger">
+          <div *ngIf="description.errors.required">
+            Description should be inserted
+          </div>
+          <div *ngIf="description.errors.minlength">
+            Must be at least 3 characters.
+          </div>
+        </div>
+      </div>
+      <h4>Skills:</h4>
+      <div class="form-group">
+        <label for="first_skill">Skill 1 :</label>
+        <input type="text" class="form-control" id="first_skill" [(ngModel)]="newItem.first_skill" #first_skill="ngModel"
+          name="first_skill">
+      </div>
+      <div class="form-group">
+        <label for="second_skill">Skill 2 :</label>
+        <input type="text" class="form-control" id="second_skill" [(ngModel)]="newItem.second_skill" #second_skill="ngModel"
+          name="second_skill">
+      </div>
+      <div class="form-group">
+        <label for="third_skill">Skill 3 :</label>
+        <input type="text" class="form-control" id="third_skill" [(ngModel)]="newItem.third_skill" #third_skill="ngModel"
+          name="third_skill">
+      </div>
+
+      <input type="submit" class="btn btn-info" value="Add Item">
+      <button [routerLink]="['/pets']" type="submit" class="btn btn-dark">Cancel</button>
+    </form>
+
+  </div>
+</div>

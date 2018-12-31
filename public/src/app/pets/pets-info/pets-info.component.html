@@ -1,0 +1,20 @@
+<div class="container">
+  <hr>
+  <div class="info" border-width="1" border-style="solid">
+    <h4 style="text-align:center">Details about {{item.name}}</h4>
+    <p><b>Name:</b> {{item.name}}
+    </p>
+    <p><b>Type:</b> {{item.type}}
+    </p>
+    <p><b>Description:</b> {{item.description}}
+    </p>
+    <p><b>First_skill:</b> {{item.first_skill}}
+    </p>
+    <p><b>Second_skill:</b> {{item.second_skill}}
+    </p>
+    <p><b>Third_skill:</b> {{item.third_skill}}
+    </p>
+  </div>
+  <button [routerLink]="['/pets']" class="btn btn-info  btn-sm ml-3">Go Back</button>
+  <button (click)="deleteItem(item._id)" class="btn btn-danger  btn-sm ml-3">Adopt this Pet!</button>
+</div>
